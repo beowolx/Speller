@@ -45,10 +45,10 @@ bool check(const char *word)
     tmp[length - 1] = '\0';
    
     // Hash the words stored in the tmp variable and get it an index
-    int index = hash(tmp);
+    int header = hash(tmp);
 
     // Loop to compare the words in the text with the words of the dictionary stored in the hash table.
-    for (node *cursor = table[index]; cursor != NULL; cursor = cursor->next)
+    for (node *cursor = header[index]; cursor != NULL; cursor = cursor->next)
     {
         // If the words matchs the word in the hash table, return true
         if (strcasecmp(cursor->word, tmp) == 0)
