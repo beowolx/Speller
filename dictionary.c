@@ -29,34 +29,34 @@ node *table[N];
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    // Get the length of word + one space for the null character    
+    // Get the length of word + one space for the null character
     int length = (strlen(word) + 1);
-    // Temporary variable to store the lowercase characters 
+    // Temporary variable to store the lowercase characters
     char tmp[length];
-   
+
     // Convert all the characters of a word to lower case to be compared with lower case characters on the dictionary
     for (int i = 0; i < (length - 1); i++)
     {
         char c = tolower(word[i]);
         tmp[i] = c;
     }
-   
+
     // Insert the null character at the end of the word
     tmp[length - 1] = '\0';
-   
+
     // Hash the words stored in the tmp variable and get it an index
-    int header = hash(tmp);
+    int index = hash(tmp);
 
     // Loop to compare the words in the text with the words of the dictionary stored in the hash table.
-    for (node *cursor = header[index]; cursor != NULL; cursor = cursor->next)
+    for (node *cursor = table[index]; cursor != NULL; cursor = cursor->next)
     {
         // If the words matchs the word in the hash table, return true
         if (strcasecmp(cursor->word, tmp) == 0)
         {
              return true;
-           
+
         }
-       
+
     }
     // Otherwise, return false
     return false;
@@ -66,7 +66,6 @@ bool check(const char *word)
 
 
 // Hashes word to a number
-// Hash function *djb2* by Dan Bernstein 
 unsigned int hash(const char *word)
 {
     unsigned long hash = 5381;
