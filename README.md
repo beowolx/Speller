@@ -56,7 +56,7 @@ That's all.
 ## License / Copyright
 
 
-* Completed as my final project of Harvard CS50 Curriculum
+* Completed as the Project 5 of Harvard CS50 Curriculum
 
 * This project is licensed under the MIT License.
 
